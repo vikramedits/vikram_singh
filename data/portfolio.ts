@@ -1,0 +1,287 @@
+export const personalInfo = {
+  name: "Vikram Singh",
+  title: "Full Stack Developer",
+  tagline: "Building modern, scalable, high-performance web experiences.",
+  description:
+    "I'm a passionate Full Stack Developer who specializes in building exceptional digital experiences. I transform complex problems into elegant, user-friendly solutions using Next.js, TypeScript, and modern web technologies.",
+  email: "vikram.singh@email.com",
+  location: "India",
+  github: "https://github.com/vikramsingh",
+  linkedin: "https://linkedin.com/in/vikramsingh",
+  twitter: "https://twitter.com/vikramsingh",
+  resumeUrl: "/resume.pdf",
+  availability: "Open to opportunities",
+};
+
+export const stats = [
+  { label: "Full Stack Projects", value: 3, suffix: "+" },
+  { label: "UI Components Built", value: 20, suffix: "+" },
+  { label: "Lighthouse Score", value: 95, suffix: "+" },
+  { label: "Years Learning", value: 1, suffix: "+" },
+];
+
+export const skills = {
+  frontend: [
+    { name: "Next.js", icon: "nextjs", level: 90 },
+    { name: "React", icon: "react", level: 88 },
+    { name: "TypeScript", icon: "typescript", level: 85 },
+    { name: "Tailwind CSS", icon: "tailwind", level: 92 },
+    { name: "Framer Motion", icon: "framer", level: 78 },
+  ],
+  backend: [
+    { name: "Node.js", icon: "nodejs", level: 80 },
+    { name: "Express", icon: "express", level: 78 },
+    { name: "Prisma", icon: "prisma", level: 75 },
+    { name: "MongoDB", icon: "mongodb", level: 72 },
+    { name: "PostgreSQL", icon: "postgresql", level: 70 },
+  ],
+  tools: [
+    { name: "Git", icon: "git", level: 88 },
+    { name: "GitHub", icon: "github", level: 88 },
+    { name: "Vercel", icon: "vercel", level: 85 },
+    { name: "Figma", icon: "figma", level: 72 },
+    { name: "Cloudinary", icon: "cloudinary", level: 70 },
+  ],
+};
+
+export const projects = [
+  {
+    id: "1",
+    slug: "nextjs-ecommerce",
+    title: "Next.js E-Commerce Platform",
+    description:
+      "A full-featured e-commerce platform with real-time inventory, payment processing, and an admin dashboard built with Next.js App Router.",
+    longDescription:
+      "Built a production-ready e-commerce solution with advanced features including server-side rendering, real-time inventory management, Stripe payment integration, and a comprehensive admin dashboard for product and order management.",
+    category: "Full Stack",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Tailwind CSS"],
+    thumbnail: "/projects/ecommerce.jpg",
+    images: ["/projects/ecommerce-1.jpg", "/projects/ecommerce-2.jpg"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/vikramsingh/ecommerce",
+    status: "Live",
+    featured: true,
+    year: 2024,
+    problem: "Businesses needed a scalable, modern e-commerce solution that could handle high traffic and provide an excellent shopping experience.",
+    solution: "Built with Next.js App Router for optimal performance, using server components for static content and client components for interactive elements.",
+    challenges: "Implementing real-time inventory updates without causing performance degradation was the primary challenge. Solved using Server-Sent Events and optimistic UI updates.",
+    performance: "Achieved 95+ Lighthouse score with image optimization, code splitting, and edge caching via Vercel.",
+  },
+  {
+    id: "2",
+    slug: "ai-dashboard",
+    title: "AI Analytics Dashboard",
+    description:
+      "A real-time analytics dashboard with AI-powered insights, interactive charts, and a clean dark-mode UI built with React and Chart.js.",
+    longDescription:
+      "Developed an enterprise-level analytics dashboard that processes large datasets in real-time, generates AI-powered insights using OpenAI API, and presents data through beautiful, interactive visualizations.",
+    category: "Frontend",
+    tags: ["React", "TypeScript", "Chart.js", "OpenAI", "Node.js", "MongoDB"],
+    thumbnail: "/projects/dashboard.jpg",
+    images: ["/projects/dashboard-1.jpg", "/projects/dashboard-2.jpg"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/vikramsingh/ai-dashboard",
+    status: "Live",
+    featured: true,
+    year: 2024,
+    problem: "Companies struggled to make sense of their data without expensive BI tools or data science teams.",
+    solution: "Created an intuitive dashboard with AI-powered natural language querying, allowing non-technical users to extract insights through simple questions.",
+    challenges: "Optimizing real-time data processing for large datasets without blocking the main thread required careful use of Web Workers and data virtualization.",
+    performance: "Reduced initial load time by 60% using lazy loading and virtual scrolling for large data tables.",
+  },
+  {
+    id: "3",
+    slug: "social-platform",
+    title: "Developer Social Platform",
+    description:
+      "A community platform for developers to share projects, write blogs, and connect, built with Next.js and a real-time backend.",
+    longDescription:
+      "Created a feature-rich social platform specifically designed for the developer community, featuring real-time notifications, project showcasing, technical blogging, and peer code reviews.",
+    category: "Full Stack",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "WebSockets", "Cloudinary"],
+    thumbnail: "/projects/social.jpg",
+    images: ["/projects/social-1.jpg", "/projects/social-2.jpg"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/vikramsingh/dev-social",
+    status: "In Progress",
+    featured: true,
+    year: 2025,
+    problem: "Developers lacked a dedicated platform that understood their unique needs for technical collaboration and project discovery.",
+    solution: "Built a specialized social network with code syntax highlighting, GitHub integration, and technical post formatting using MDX.",
+    challenges: "Implementing real-time features (notifications, live collaboration) while maintaining performance required careful architecture with WebSockets and Redis pub/sub.",
+    performance: "Used ISR and edge caching for public content, achieving sub-100ms response times globally.",
+  },
+];
+
+export const experience = [
+  {
+    id: "1",
+    title: "Full Stack Development Journey",
+    company: "Self-Learning",
+    type: "Learning",
+    period: "2024 – Present",
+    description: "Deep diving into full-stack development, mastering Next.js, TypeScript, databases, and modern deployment practices through hands-on project building.",
+    skills: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Vercel"],
+    icon: "code",
+  },
+  {
+    id: "2",
+    title: "Freelance Web Developer",
+    company: "Freelance",
+    type: "Work",
+    period: "2024",
+    description: "Developed responsive landing pages and small web applications for local businesses, focusing on performance and modern design.",
+    skills: ["React", "Tailwind CSS", "JavaScript", "Figma"],
+    icon: "briefcase",
+  },
+  {
+    id: "3",
+    title: "Open Source Contributions",
+    company: "GitHub",
+    type: "Achievement",
+    period: "2024 – Present",
+    description: "Actively contributing to open source projects, improving documentation, fixing bugs, and building community tools.",
+    skills: ["Git", "GitHub", "TypeScript", "Documentation"],
+    icon: "github",
+  },
+  {
+    id: "4",
+    title: "UI/UX Design Exploration",
+    company: "Figma & Design Systems",
+    type: "Learning",
+    period: "2023",
+    description: "Explored design principles, typography, color theory, and component design systems to build better, more intuitive user interfaces.",
+    skills: ["Figma", "Design Systems", "Typography", "Color Theory"],
+    icon: "palette",
+  },
+];
+
+export const services = [
+  {
+    title: "Full Stack Development",
+    description: "End-to-end web application development from database design to pixel-perfect UI using Next.js, TypeScript, and modern databases.",
+    icon: "layers",
+    color: "from-violet-500 to-purple-600",
+  },
+  {
+    title: "UI Development",
+    description: "Building beautiful, responsive, and accessible user interfaces with Tailwind CSS, Framer Motion, and modern design systems.",
+    icon: "layout",
+    color: "from-blue-500 to-cyan-600",
+  },
+  {
+    title: "Landing Page Design",
+    description: "High-converting, visually stunning landing pages optimized for performance, SEO, and user engagement.",
+    icon: "monitor",
+    color: "from-emerald-500 to-teal-600",
+  },
+  {
+    title: "API Integration",
+    description: "Seamlessly integrating third-party APIs, payment gateways, authentication systems, and external services.",
+    icon: "zap",
+    color: "from-orange-500 to-amber-600",
+  },
+  {
+    title: "Performance Optimization",
+    description: "Auditing and optimizing web applications to achieve 90+ Lighthouse scores, faster load times, and better Core Web Vitals.",
+    icon: "gauge",
+    color: "from-rose-500 to-pink-600",
+  },
+  {
+    title: "Responsive Development",
+    description: "Creating flawless experiences across all devices — mobile, tablet, desktop, and ultrawide — with mobile-first development.",
+    icon: "smartphone",
+    color: "from-indigo-500 to-blue-600",
+  },
+];
+
+export const testimonials = [
+  {
+    id: "1",
+    name: "Arjun Mehta",
+    role: "Startup Founder",
+    company: "TechFlow",
+    avatar: "/avatars/arjun.jpg",
+    content: "Vikram delivered an exceptional e-commerce platform that exceeded our expectations. His attention to detail, clean code, and communication made the entire process seamless. Highly recommended!",
+    rating: 5,
+  },
+  {
+    id: "2",
+    name: "Priya Sharma",
+    role: "Product Manager",
+    company: "InnovateLabs",
+    avatar: "/avatars/priya.jpg",
+    content: "Working with Vikram was a pleasure. He quickly understood our requirements and delivered a beautiful, performant dashboard ahead of schedule. The code quality is outstanding.",
+    rating: 5,
+  },
+  {
+    id: "3",
+    name: "Rahul Kapoor",
+    role: "CEO",
+    company: "DigitalVentures",
+    avatar: "/avatars/rahul.jpg",
+    content: "Vikram's expertise in Next.js and modern web technologies helped us build a platform that's fast, scalable, and visually impressive. He's a truly talented developer.",
+    rating: 5,
+  },
+];
+
+export const blogPosts = [
+  {
+    id: "1",
+    slug: "nextjs-performance-optimization",
+    title: "Next.js Performance Optimization: A Complete Guide",
+    excerpt: "Learn how to optimize your Next.js application for peak performance, achieving 90+ Lighthouse scores with image optimization, code splitting, and smart caching strategies.",
+    category: "Next.js",
+    readingTime: "8 min read",
+    date: "2024-12-15",
+    thumbnail: "/blog/nextjs-performance.jpg",
+    featured: true,
+    tags: ["Next.js", "Performance", "Optimization", "Web Vitals"],
+  },
+  {
+    id: "2",
+    slug: "framer-motion-animations",
+    title: "Mastering Framer Motion: Building Premium Animations",
+    excerpt: "A deep dive into Framer Motion's advanced features — stagger animations, scroll-triggered reveals, gesture-based interactions, and page transitions that feel native.",
+    category: "Animation",
+    readingTime: "6 min read",
+    date: "2024-11-20",
+    thumbnail: "/blog/framer-motion.jpg",
+    featured: true,
+    tags: ["Framer Motion", "Animation", "React", "UX"],
+  },
+  {
+    id: "3",
+    slug: "react-best-practices-2025",
+    title: "React Best Practices for 2025",
+    excerpt: "Essential patterns and practices for writing scalable, maintainable React code in 2025 — Server Components, composition patterns, and performance optimization techniques.",
+    category: "React",
+    readingTime: "10 min read",
+    date: "2024-10-05",
+    thumbnail: "/blog/react-best-practices.jpg",
+    featured: false,
+    tags: ["React", "Best Practices", "TypeScript", "Performance"],
+  },
+  {
+    id: "4",
+    slug: "seo-nextjs-guide",
+    title: "The Complete SEO Guide for Next.js Applications",
+    excerpt: "Everything you need to know about SEO in Next.js — metadata API, Open Graph, structured data, sitemaps, and how to dominate Google search rankings.",
+    category: "SEO",
+    readingTime: "7 min read",
+    date: "2024-09-18",
+    thumbnail: "/blog/seo-nextjs.jpg",
+    featured: false,
+    tags: ["SEO", "Next.js", "Metadata", "Google"],
+  },
+];
+
+export const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Blog", href: "#blog" },
+  { label: "Contact", href: "#contact" },
+];
