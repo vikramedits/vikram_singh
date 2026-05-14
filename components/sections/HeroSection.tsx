@@ -4,10 +4,20 @@ import { motion } from "framer-motion";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { FadeIn } from "@/components/animations/FadeIn";
+import ParticlesBackground from "@/components/sections/ParticlesBackground"
 
 export default function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+
+      <div className="absolute inset-0">
+        {/* Aurora blobs */}
+        <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-violet-500/30 rounded-full blur-[150px]" />
+        <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-indigo-500/20 rounded-full blur-[150px]" />
+
+        {/* Particles */}
+        <ParticlesBackground />
+      </div>
       {/* Hero glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/10 dark:bg-violet-500/5 rounded-full blur-[150px] pointer-events-none" />
 
