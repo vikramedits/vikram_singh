@@ -47,72 +47,133 @@ export const skills = {
 export const projects = [
   {
     id: "1",
-    slug: "nextjs-ecommerce",
-    title: "Next.js E-Commerce Platform",
+    slug: "villa-booking-platform",
+    title: "The Pushpa Heritage – Villa Booking Platform",
     description:
-      "A full-featured e-commerce platform with real-time inventory, payment processing, and an admin dashboard built with Next.js App Router.",
+      "A full-stack villa booking platform with secure payment gateway integration, property listings, and an admin dashboard for managing bookings and users.",
     longDescription:
-      "Built a production-ready e-commerce solution with advanced features including server-side rendering, real-time inventory management, Stripe payment integration, and a comprehensive admin dashboard for product and order management.",
+      "Built a production-ready luxury villa booking platform for real-world hospitality use. Includes property management system, booking flow, payment gateway integration, and a powerful admin dashboard for controlling listings, availability, and customer bookings.",
     category: "Full Stack",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Tailwind CSS"],
-    thumbnail: "/projects/ecommerce.jpg",
-    images: ["/projects/ecommerce-1.jpg", "/projects/ecommerce-2.jpg"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/vikramsingh/ecommerce",
+    tags: [
+      "Next.js",
+      "Full Stack",
+      "Payment Gateway",
+      "Admin Dashboard",
+      "MongoDB",
+      "Tailwind CSS",
+    ],
+    thumbnail: "/projects/villa-booking.jpg",
+    images: ["/projects/villa-1.jpg", "/projects/villa-2.jpg"],
+    liveUrl: "https://thepushpaheritage.in",
+    githubUrl: "",
     status: "Live",
-    featured: true,
-    year: 2024,
-    problem: "Businesses needed a scalable, modern e-commerce solution that could handle high traffic and provide an excellent shopping experience.",
-    solution: "Built with Next.js App Router for optimal performance, using server components for static content and client components for interactive elements.",
-    challenges: "Implementing real-time inventory updates without causing performance degradation was the primary challenge. Solved using Server-Sent Events and optimistic UI updates.",
-    performance: "Achieved 95+ Lighthouse score with image optimization, code splitting, and edge caching via Vercel.",
-  },
-  {
-    id: "2",
-    slug: "ai-dashboard",
-    title: "AI Analytics Dashboard",
-    description:
-      "A real-time analytics dashboard with AI-powered insights, interactive charts, and a clean dark-mode UI built with React and Chart.js.",
-    longDescription:
-      "Developed an enterprise-level analytics dashboard that processes large datasets in real-time, generates AI-powered insights using OpenAI API, and presents data through beautiful, interactive visualizations.",
-    category: "Frontend",
-    tags: ["React", "TypeScript", "Chart.js", "OpenAI", "Node.js", "MongoDB"],
-    thumbnail: "/projects/dashboard.jpg",
-    images: ["/projects/dashboard-1.jpg", "/projects/dashboard-2.jpg"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/vikramsingh/ai-dashboard",
-    status: "Live",
-    featured: true,
-    year: 2024,
-    problem: "Companies struggled to make sense of their data without expensive BI tools or data science teams.",
-    solution: "Created an intuitive dashboard with AI-powered natural language querying, allowing non-technical users to extract insights through simple questions.",
-    challenges: "Optimizing real-time data processing for large datasets without blocking the main thread required careful use of Web Workers and data virtualization.",
-    performance: "Reduced initial load time by 60% using lazy loading and virtual scrolling for large data tables.",
-  },
-  {
-    id: "3",
-    slug: "social-platform",
-    title: "Developer Social Platform",
-    description:
-      "A community platform for developers to share projects, write blogs, and connect, built with Next.js and a real-time backend.",
-    longDescription:
-      "Created a feature-rich social platform specifically designed for the developer community, featuring real-time notifications, project showcasing, technical blogging, and peer code reviews.",
-    category: "Full Stack",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "WebSockets", "Cloudinary"],
-    thumbnail: "/projects/social.jpg",
-    images: ["/projects/social-1.jpg", "/projects/social-2.jpg"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/vikramsingh/dev-social",
-    status: "In Progress",
     featured: true,
     year: 2025,
-    problem: "Developers lacked a dedicated platform that understood their unique needs for technical collaboration and project discovery.",
-    solution: "Built a specialized social network with code syntax highlighting, GitHub integration, and technical post formatting using MDX.",
-    challenges: "Implementing real-time features (notifications, live collaboration) while maintaining performance required careful architecture with WebSockets and Redis pub/sub.",
-    performance: "Used ISR and edge caching for public content, achieving sub-100ms response times globally.",
+    problem:
+      "Luxury villa booking systems often lack smooth UX and proper backend management for owners and admins.",
+    solution:
+      "Built a scalable booking system with automated availability handling, secure payments, and a clean admin interface.",
+    challenges:
+      "Handling booking conflicts and ensuring secure payment flow required careful backend logic and validation.",
+    performance:
+      "Optimized for fast booking flow and responsive UI across devices with Next.js performance optimizations.",
+  },
+
+  {
+    id: "2",
+    slug: "cricket-ai-platform",
+    title: "Balls & Boundaries – Cricket Intelligence Platform",
+    description:
+      "A cricket news and AI-powered insights platform with real-time articles, AI chatbot, and match analysis using OpenAI API.",
+    longDescription:
+      "A full-stack cricket platform featuring live articles, AI-generated cricket insights, and an intelligent chatbot powered by OpenAI. Includes admin dashboard for managing news content and analytics.",
+    category: "Full Stack",
+    tags: [
+      "Next.js",
+      "OpenAI API",
+      "AI Chatbot",
+      "Admin Dashboard",
+      "Node.js",
+      "MongoDB",
+    ],
+    thumbnail: "/projects/cricket.jpg",
+    images: ["/projects/cricket-1.jpg", "/projects/cricket-2.jpg"],
+    liveUrl: "https://ballsandboundaries.in",
+    githubUrl: "",
+    status: "Live",
+    featured: true,
+    year: 2025,
+    problem:
+      "Cricket fans need real-time updates and deeper insights beyond basic news articles.",
+    solution:
+      "Integrated AI-powered summaries, cricket analysis, and chatbot interaction for personalized insights.",
+    challenges:
+      "Working with OpenAI API efficiently while maintaining fast response times and structured outputs.",
+    performance:
+      "Improved content delivery speed using caching and optimized API responses.",
+  },
+
+  {
+    id: "3",
+    slug: "vocaply-english-learning-platform",
+    title: "Vocaply – English Learning Platform",
+    description:
+      "An advanced English learning platform with AI tools, lessons, courses, and real-time user progress tracking (currently in development).",
+    longDescription:
+      "Vocaply is a modern EdTech platform designed to improve English learning through structured lessons, AI-powered tools, quizzes, and real-time progress tracking with an admin dashboard.",
+    category: "EdTech",
+    tags: [
+      "Next.js",
+      "AI Tools",
+      "EdTech",
+      "Learning Platform",
+      "Admin Dashboard",
+      "Real-time Tracking",
+    ],
+    thumbnail: "/projects/vocaply.jpg",
+    images: ["/projects/vocaply-1.jpg", "/projects/vocaply-2.jpg"],
+    liveUrl: "",
+    githubUrl: "",
+    status: "In Progress",
+    featured: true,
+    year: 2026,
+    problem:
+      "Existing English learning platforms lack personalization and AI-driven practice systems.",
+    solution:
+      "Building an adaptive learning system with AI-based exercises, vocabulary tools, and progress tracking.",
+    challenges:
+      "Designing a scalable learning system with real-time analytics and user tracking.",
+    performance:
+      "Currently optimizing architecture for future scale and AI integration.",
+  },
+
+  {
+    id: "4",
+    slug: "portfolio-website",
+    title: "Personal Portfolio Website",
+    description:
+      "A modern developer portfolio built with Next.js showcasing projects, skills, and experience with animations and responsive UI.",
+    longDescription:
+      "My personal portfolio website built to showcase real-world full-stack and AI projects with smooth UI/UX, animations, and optimized performance.",
+    category: "Frontend",
+    tags: ["Next.js", "Framer Motion", "Tailwind CSS", "UI/UX"],
+    thumbnail: "/projects/portfolio.jpg",
+    images: ["/projects/portfolio-1.jpg"],
+    liveUrl: "",
+    githubUrl: "",
+    status: "Live",
+    featured: false,
+    year: 2026,
+    problem:
+      "Needed a professional way to showcase projects and technical skills to recruiters and clients.",
+    solution:
+      "Built a fast, animated, and responsive portfolio using Next.js and modern UI practices.",
+    challenges:
+      "Balancing performance, animations, and clean design without overloading the UI.",
+    performance:
+      "Achieved fast load times with optimized assets and static rendering.",
   },
 ];
-
 export const experience = [
   {
     id: "1",

@@ -8,9 +8,9 @@ import ParticlesBackground from "@/components/sections/ParticlesBackground"
 
 export default function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-6 md:pt-10 overflow-hidden">
 
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         {/* Aurora blobs */}
         <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-violet-500/30 rounded-full blur-[150px]" />
         <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-indigo-500/20 rounded-full blur-[150px]" />
@@ -19,9 +19,9 @@ export default function HeroSection() {
         <ParticlesBackground />
       </div>
       {/* Hero glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/10 dark:bg-violet-500/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[600px] h-[600px] bg-violet-500/10 dark:bg-violet-500/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-32">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left — Text */}
           <div className="order-2 md:order-1">
@@ -35,7 +35,7 @@ export default function HeroSection() {
             <FadeIn delay={0.2}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-4">
                 Hi, I&apos;m{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-500 to-indigo-500">
                   {personalInfo.name}
                 </span>
               </h1>
@@ -85,7 +85,7 @@ export default function HeroSection() {
               <div className="relative">
                 {/* Profile circle */}
                 <motion.div
-                  className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center relative"
+                  className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-linear-to-br from-violet-500 to-indigo-600 flex items-center justify-center relative"
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 >

@@ -16,8 +16,8 @@ export default function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState<"frontend" | "backend" | "tools">("frontend");
 
   return (
-    <section id="skills" className="py-20 sm:py-28">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="skills" className="py-20 sm:py-28 overflow-hidden">
+      <div className="md:max-w-6xl mx-auto px-4 sm:px-6">
         <FadeIn>
           <div className="text-center mb-16">
             <span className="text-sm font-medium text-violet-500 tracking-wider uppercase">Skills</span>
@@ -37,11 +37,10 @@ export default function SkillsSection() {
               <button
                 key={key}
                 onClick={() => setActiveCategory(key)}
-                className={`relative flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all ${
-                  activeCategory === key
+                className={`relative flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all ${activeCategory === key
                     ? "text-white"
                     : "text-muted-foreground hover:text-foreground bg-secondary"
-                }`}
+                  }`}
               >
                 {activeCategory === key && (
                   <motion.span

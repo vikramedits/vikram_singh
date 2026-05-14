@@ -27,7 +27,7 @@
 
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -100,11 +100,176 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
   html {
     scroll-behavior: smooth;
   }
+}
+
+
+/* container-fluid */
+.container-fluid {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Product */
+.comboslide .offerprice {
+  font-size: 20px;
+  color: #333;
+  font-family: "pangrammedium";
+}
+
+.comboslide .percentoff {
+  font-size: 18px;
+}
+
+.comboslide .percentoff img {
+  width: 16px;
+  margin: 0 0 1px;
+}
+
+.hotel-glimpse {
+  background: url("/images/hotel-furniture/hotel-banner-lg.jpg");
+  background-size: cover;
+}
+
+@media (min-width: 1390px) and (max-width: 1400px) {
+  .hotseller-slides .categ-card-grid {
+    min-height: 410px;
+  }
+}
+
+@media (min-width: 1390px) and (max-width: 1440px) {
+  .container-fluid {
+    max-width: 1240px;
+  }
+
+  .category-main .w-1\/4 {
+    width: 21%;
+  }
+
+  .category-main .md\:w-3\/4 {
+    width: 77.5%;
+  }
+
+  .category-main .container-fluid {
+    max-width: 1390px;
+  }
+
+  .hotseller-slides .categ-card-grid {
+    min-height: 410px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container-fluid {
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1500px) {
+  .container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .container-fluid {
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1700px) {
+  .hotseller-slides .categ-card-grid {
+    min-height: 430px;
+  }
+}
+
+@media (max-width: 1280px) {
+
+  .container-fluid,
+  .container-1200,
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 1212px) {
+  .container-fluid {
+    max-width: 1150px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1024) {
+
+  .container-fluid,
+  .container-1200 {
+    max-width: 92%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .container-fluid,
+  .container-1200 {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .container-fluid,
+  .container-1200,
+  .container {
+    padding: 0 10px;
+  }
+}
+
+.container-1200 {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+@layer utilities {
+  @media (max-width: 767px) {
+    .hide-on-mobile {
+      display: none !important;
+    }
+
+    .show-on-mobile {
+      display: flex !important;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hide-on-desktop {
+      display: none !important;
+    }
+
+    .show-on-desktop {
+      display: flex !important;
+    }
+  }
+}
+
+/* scroller */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
