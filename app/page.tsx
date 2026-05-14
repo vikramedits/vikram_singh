@@ -24,12 +24,12 @@ export default function Home() {
         <Navbar />
         <main className="flex-1">
           <HeroSection />
-          <StatsSection />
           <AboutSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <ExperienceTimeline />
+          <StatsSection />
           <ServicesSection />
+          <ProjectsSection />
+          <SkillsSection />
+          <ExperienceTimeline />
           <TestimonialsSection />
         </main>
         <Footer />

@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <div>
             <a href="#home" className="text-xl font-bold tracking-tight">
-              <span className="text-violet-500">V</span>ikram
+              <span className="text-violet-500">N</span>exaura
               <span className="text-violet-500">.</span>
             </a>
 
@@ -80,7 +80,7 @@ export default function Footer() {
 
         <div className="flex justify-between pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Vikram Singh
+            © {new Date().getFullYear()} Nexaura
           </p>
 
           <button
