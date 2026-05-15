@@ -54,9 +54,9 @@ export default function Navbar() {
             {/* Logo */}
             <a
               href="#home"
-              className="text-xl font-semibold tracking-tight hover:opacity-80 transition"
+              className="text-xl font-bold tracking-tight hover:opacity-80 transition"
             >
-              <span className="text-violet-500">N</span>exquor.
+              <span className="text-violet-500">V</span>ikram.
             </a>
 
             {/* Desktop Nav */}

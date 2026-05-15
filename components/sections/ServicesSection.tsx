@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { services } from "@/data/portfolio";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations/FadeIn";
-import { Layers, Layout, Monitor, Zap, Gauge, Smartphone } from "lucide-react";
+import { Layers, Layout, Monitor, Zap, Gauge, Smartphone, ArrowRight } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   layers: Layers,
@@ -54,6 +54,19 @@ export default function ServicesSection() {
             );
           })}
         </StaggerContainer>
+
+        <FadeIn delay={0.4}>
+          <div className="mt-16 text-center">
+            <p className="text-muted-foreground mb-6">Need a custom solution for your unique business requirements?</p>
+            <a 
+              href="#contact" 
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-violet-600 text-white font-bold hover:bg-violet-700 transition shadow-lg hover:shadow-violet-500/25"
+            >
+              Get a Free Consultation
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

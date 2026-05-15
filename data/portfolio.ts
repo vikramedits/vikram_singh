@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Vikram Singh",
-  title: "Web Development Agency",
+  title: "Full Stack Developer",
   tagline: "Building modern, scalable, high-performance web experiences.",
   description:
     "I'm a passionate Full Stack Developer who specializes in building exceptional digital experiences. I transform complex problems into elegant, user-friendly solutions using Next.js, TypeScript, and modern web technologies.",
@@ -343,6 +343,6 @@ export const navLinks = [
   { label: "Skills", href: "/#skills" },
   { label: "Projects", href: "/#projects" },
   { label: "Experience", href: "/#experience" },
-  { label: "Agency", href: "/nexaura" },
+  { label: "Blog", href: "/#blog" },
   { label: "Contact", href: "/#contact" },
 ];

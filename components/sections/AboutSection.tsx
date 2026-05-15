@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { personalInfo } from "@/data/portfolio";
 import {
   FadeIn,
   StaggerContainer,
@@ -56,7 +57,7 @@ export default function AboutSection() {
             </h2>
 
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              I’m Vikram Singh Deora — a frontend-focused full stack developer
+              I’m {personalInfo.name} — a frontend-focused full stack developer
               specializing in building high-performance web applications using
               Next.js, React, and AI-powered systems.
             </p>
@@ -93,10 +94,10 @@ export default function AboutSection() {
 
                 {/* Contact */}
                 <div className="mt-6 space-y-2 text-sm text-muted-foreground">
-                  <p>📞 +91 9001069033</p>
-                  <p>📧 deora.vikramsingh75@gmail.com</p>
-                  <p>🔗 linkedin.com/in/vikramsingh</p>
-                  <p>💻 github.com/vikramedits</p>
+                  <p>📧 {personalInfo.email}</p>
+                  <p>📍 {personalInfo.location}</p>
+                  <p>🔗 <a href={personalInfo.linkedin} className="hover:text-violet-500 transition">LinkedIn</a></p>
+                  <p>💻 <a href={personalInfo.github} className="hover:text-violet-500 transition">GitHub</a></p>
                 </div>
 
                 {/* Highlights */}

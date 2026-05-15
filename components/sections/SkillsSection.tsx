@@ -7,9 +7,9 @@ import { skills } from "@/data/portfolio";
 import { Monitor, Server, Wrench } from "lucide-react";
 
 const categories = [
-  { key: "frontend" as const, label: "Frontend", icon: Monitor },
-  { key: "backend" as const, label: "Backend", icon: Server },
-  { key: "tools" as const, label: "Tools", icon: Wrench },
+  { key: "frontend" as const, label: "Frontend", icon: Monitor, color: "text-blue-500", bg: "bg-blue-500/10" },
+  { key: "backend" as const, label: "Backend", icon: Server, color: "text-violet-500", bg: "bg-violet-500/10" },
+  { key: "tools" as const, label: "Tools", icon: Wrench, color: "text-emerald-500", bg: "bg-emerald-500/10" },
 ];
 
 export default function SkillsSection() {
@@ -33,23 +33,23 @@ export default function SkillsSection() {
         {/* Category tabs */}
         <FadeIn delay={0.1}>
           <div className="flex justify-center gap-2 mb-12">
-            {categories.map(({ key, label, icon: Icon }) => (
+            {categories.map(({ key, label, icon: Icon, color, bg }) => (
               <button
                 key={key}
                 onClick={() => setActiveCategory(key)}
                 className={`relative flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all ${activeCategory === key
                     ? "text-white"
-                    : "text-muted-foreground hover:text-foreground bg-secondary"
+                    : `text-muted-foreground hover:text-foreground ${bg}`
                   }`}
               >
                 {activeCategory === key && (
                   <motion.span
                     layoutId="skills-tab"
-                    className="absolute inset-0 bg-violet-600 rounded-full -z-10"
+                    className={`absolute inset-0 rounded-full -z-10 ${activeCategory === 'frontend' ? 'bg-blue-600' : activeCategory === 'backend' ? 'bg-violet-600' : 'bg-emerald-600'}`}
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-                <Icon className="w-4 h-4" />
+                <Icon className={`w-4 h-4 ${activeCategory === key ? 'text-white' : color}`} />
                 {label}
               </button>
             ))}

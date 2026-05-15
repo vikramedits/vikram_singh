@@ -12,6 +12,9 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ExperienceTimeline from "@/components/sections/ExperienceTimeline";
 import ServicesSection from "@/components/sections/ServicesSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import ProcessSection from "@/components/sections/ProcessSection";
+import ContactSection from "@/components/sections/ContactSection";
+import BlogSection from "@/components/sections/BlogSection";
 import BackgroundEffects from "@/components/animations/BackgroundEffects";
 import CustomCursor from "@/components/animations/CustomCursor";
 
@@ -27,10 +30,13 @@ export default function Home() {
           <AboutSection />
           <StatsSection />
           <ServicesSection />
+          <ProcessSection />
           <ProjectsSection />
           <SkillsSection />
           <ExperienceTimeline />
           <TestimonialsSection />
+          <BlogSection />
+          <ContactSection />
         </main>
         <Footer />
       </div>
