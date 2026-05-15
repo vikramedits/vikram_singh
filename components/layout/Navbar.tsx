@@ -56,7 +56,7 @@ export default function Navbar() {
               href="#home"
               className="text-xl font-semibold tracking-tight hover:opacity-80 transition"
             >
-              <span className="text-violet-500">N</span>exaura.
+              <span className="text-violet-500">N</span>exquor.
             </a>
 
             {/* Desktop Nav */}
