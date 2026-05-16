@@ -72,7 +72,7 @@ export default function AboutSection() {
             <div className="relative">
 
               {/* Glow Background */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-violet-500/10 to-indigo-500/10 blur-2xl rounded-3xl" />
+              <div className="absolute -inset-4 bg-linear-to-r from-violet-500/10 to-indigo-500/10 blur-2xl rounded-3xl" />
 
               <div className="relative rounded-3xl border border-border bg-card p-8">
 

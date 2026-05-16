@@ -152,52 +152,30 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
                   {post.excerpt}
                 </p>
                 
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-
-                <div className="p-8 rounded-2xl bg-secondary/30 border border-border my-12">
-                  <h3 className="text-xl font-bold text-foreground mb-4">Key Takeaways</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <ChevronRight className="w-5 h-5 text-violet-500 shrink-0 mt-0.5" />
-                      Understanding the core principles of modern architecture.
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <ChevronRight className="w-5 h-5 text-violet-500 shrink-0 mt-0.5" />
-                      Implementing high-performance patterns in Next.js.
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <ChevronRight className="w-5 h-5 text-violet-500 shrink-0 mt-0.5" />
-                      Optimizing for user experience and accessibility.
-                    </li>
-                  </ul>
-                </div>
-
-                <p>
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-
-                <h2 className="text-3xl font-bold text-foreground mt-12 mb-6">Deep Dive into Implementation</h2>
-                
-                <p>
-                  Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
-                  <div className="p-6 rounded-2xl border border-border bg-card">
-                    <h4 className="font-bold text-foreground mb-2">Strategy A</h4>
-                    <p className="text-sm">Focused on rapid development and prototyping with existing tools.</p>
-                  </div>
-                  <div className="p-6 rounded-2xl border border-border bg-card">
-                    <h4 className="font-bold text-foreground mb-2">Strategy B</h4>
-                    <p className="text-sm">Scalable production-grade approach with custom infrastructure.</p>
-                  </div>
-                </div>
-
-                <p>
-                  Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse id sem consectetuer libero luctus adipiscing.
-                </p>
+                {post.content && (post.content as any).map((section: any, idx: number) => {
+                  switch (section.type) {
+                    case "paragraph":
+                      return <p key={idx}>{section.text}</p>;
+                    case "subheading":
+                      return <h2 key={idx} className="text-3xl font-bold text-foreground mt-12 mb-6">{section.text}</h2>;
+                    case "list":
+                      return (
+                        <div key={idx} className="p-8 rounded-2xl bg-secondary/30 border border-border my-12">
+                          <h3 className="text-xl font-bold text-foreground mb-4">{section.text}</h3>
+                          <ul className="space-y-3">
+                            {section.items.map((item: string, i: number) => (
+                              <li key={i} className="flex items-start gap-3">
+                                <ChevronRight className="w-5 h-5 text-violet-500 shrink-0 mt-0.5" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    default:
+                      return null;
+                  }
+                })}
               </div>
             </article>
 
