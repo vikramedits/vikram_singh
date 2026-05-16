@@ -270,6 +270,43 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               </div>
             </div>
 
+            {/* Project Gallery */}
+            {project.images && project.images.length > 0 && (
+              <motion.section 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-24"
+              >
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-2xl font-bold">Project Gallery</h3>
+                  <div className="h-px flex-1 bg-border mx-6 hidden sm:block" />
+                  <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">{project.images.length} Shots</span>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {project.images.map((img, i) => (
+                    <motion.div 
+                      key={img}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="group relative aspect-video rounded-3xl overflow-hidden border border-border bg-card shadow-lg hover:shadow-violet-500/10 transition-all duration-500"
+                    >
+                      <div className="absolute inset-0 bg-linear-to-br from-violet-500/10 to-indigo-500/10 group-hover:scale-110 transition-transform duration-700" />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
+                         <span className="px-4 py-2 rounded-full bg-white text-black text-xs font-bold uppercase tracking-widest">View Image</span>
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center text-muted-foreground italic text-xs pointer-events-none">
+                        Screenshot {i + 1}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.section>
+            )}
+
             {/* Next Project Teaser */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}

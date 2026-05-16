@@ -1,11 +1,45 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { FadeIn } from "@/components/animations/FadeIn";
 
 export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus("idle");
+
+    const formData = new FormData(e.currentTarget);
+    // You can get your own access key at https://web3forms.com/
+    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background Glow */}
@@ -16,7 +50,7 @@ export default function ContactSection() {
           <div className="text-center mb-16">
             <FadeIn>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                Let&apos;s <span className="text-violet-500">Connect</span>
+                Let&apos;s <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-500 to-indigo-500">Connect</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 Have a project in mind or just want to say hi? I&apos;m always open to discussing new opportunities and creative ideas.
@@ -60,9 +94,9 @@ export default function ContactSection() {
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Socials</p>
                       <div className="flex gap-4 mt-2">
-                        <a href={personalInfo.github} className="text-muted-foreground hover:text-violet-500 transition">GitHub</a>
-                        <a href={personalInfo.linkedin} className="text-muted-foreground hover:text-violet-500 transition">LinkedIn</a>
-                        <a href={personalInfo.twitter} className="text-muted-foreground hover:text-violet-500 transition">Twitter</a>
+                        <a href={personalInfo.github} target="_blank" className="text-muted-foreground hover:text-violet-500 transition">GitHub</a>
+                        <a href={personalInfo.linkedin} target="_blank" className="text-muted-foreground hover:text-violet-500 transition">LinkedIn</a>
+                        <a href={personalInfo.twitter} target="_blank" className="text-muted-foreground hover:text-violet-500 transition">Twitter</a>
                       </div>
                     </div>
                   </div>
@@ -89,22 +123,26 @@ export default function ContactSection() {
 
             {/* Contact Form */}
             <FadeIn direction="right" delay={0.4}>
-              <form className="space-y-6 p-8 rounded-3xl bg-card border border-border shadow-sm">
+              <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-3xl bg-card border border-border shadow-sm">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Name</label>
                     <input 
                       type="text" 
+                      name="name"
+                      required
                       placeholder="John Doe"
-                      className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition"
+                      className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition text-sm"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Email</label>
                     <input 
                       type="email" 
+                      name="email"
+                      required
                       placeholder="john@example.com"
-                      className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition"
+                      className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition text-sm"
                     />
                   </div>
                 </div>
@@ -112,25 +150,42 @@ export default function ContactSection() {
                   <label className="text-sm font-medium">Subject</label>
                   <input 
                     type="text" 
+                    name="subject"
+                    required
                     placeholder="Project Inquiry"
-                    className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition"
+                    className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition text-sm"
                   />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Message</label>
                   <textarea 
+                    name="message"
+                    required
                     rows={5}
                     placeholder="Tell me about your project..."
-                    className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition resize-none text-sm"
                   />
                 </div>
+                
                 <button 
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-violet-600 text-white font-bold hover:bg-violet-700 transition-all shadow-lg hover:shadow-violet-500/25 flex items-center justify-center gap-2 group"
+                  disabled={isSubmitting}
+                  className={`w-full py-4 rounded-xl bg-violet-600 text-white font-bold transition-all shadow-lg flex items-center justify-center gap-2 group ${isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:bg-violet-700 hover:shadow-violet-500/25"}`}
                 >
-                  Send Message
-                  <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  <Send className={`w-4 h-4 transition-transform ${isSubmitting ? "" : "group-hover:translate-x-1 group-hover:-translate-y-1"}`} />
                 </button>
+
+                {status === "success" && (
+                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm text-emerald-500 text-center font-medium mt-4">
+                    Message sent successfully! I&apos;ll get back to you soon.
+                  </motion.p>
+                )}
+                {status === "error" && (
+                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm text-rose-500 text-center font-medium mt-4">
+                    Something went wrong. Please try again.
+                  </motion.p>
+                )}
               </form>
             </FadeIn>
           </div>
