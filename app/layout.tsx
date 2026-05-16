@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vikramsingh.in"),
   title: {
     default: "Vikram Singh | Full Stack Developer & AI Engineer",
     template: "%s | Vikram Singh",
@@ -21,6 +22,10 @@ export const metadata: Metadata = {
   keywords: ["Next.js", "React", "TypeScript", "Full Stack Developer", "AI Engineer", "Portfolio", "Web Development"],
   authors: [{ name: "Vikram Singh Deora" }],
   creator: "Vikram Singh Deora",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
