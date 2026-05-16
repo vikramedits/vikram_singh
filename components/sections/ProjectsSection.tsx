@@ -88,7 +88,7 @@ export default function ProjectsSection() {
                 whileHover={{ y: -4 }}
               >
                 {/* Thumbnail / Preview */}
-                <div className="relative h-48 bg-gradient-to-br from-violet-500/10 to-indigo-500/20 overflow-hidden">
+                <div className="relative h-48 bg-linear-to-br from-violet-500/10 to-indigo-500/20 overflow-hidden">
                   {/* Browser frame */}
                   <div className="absolute top-3 left-3 flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />

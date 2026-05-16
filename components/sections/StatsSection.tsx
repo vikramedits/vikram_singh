@@ -41,9 +41,9 @@ function Background() {
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">
       {/* soft grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.06)_1px,transparent_0)] [background-size:40px_40px]" />
+      <div className="absolute inset-0 bg-[radial-linear(circle_at_1px_1px,rgba(255,255,255,0.06)_1px,transparent_0)] bg-size-[40px_40px]" />
 
-      {/* gradient orbs */}
+      {/* linear orbs */}
       <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-violet-500/20 blur-[120px] rounded-full" />
       <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-cyan-500/20 blur-[140px] rounded-full" />
       <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-indigo-500/20 blur-[140px] rounded-full" />

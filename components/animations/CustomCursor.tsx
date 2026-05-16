@@ -50,14 +50,14 @@ export default function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-6 h-6 rounded-full border-2 border-violet-500 pointer-events-none z-[9999] mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 w-6 h-6 rounded-full border-2 border-violet-500 pointer-events-none z-9999 mix-blend-difference hidden md:block"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
         }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-violet-500 pointer-events-none z-[9999] hidden md:block"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-violet-500 pointer-events-none z-9999 hidden md:block"
         style={{
           x: dotX,
           y: dotY,

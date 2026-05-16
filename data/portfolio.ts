@@ -1,10 +1,10 @@
 export const personalInfo = {
-  name: "Vikram Singh",
-  title: "Full Stack Developer",
+  name: "Vikram Singh Deora",
+  title: "Next.js and AI Developer",
   tagline: "Building modern, scalable, high-performance web experiences.",
   description:
-    "I'm a passionate Full Stack Developer who specializes in building exceptional digital experiences. I transform complex problems into elegant, user-friendly solutions using Next.js, TypeScript, and modern web technologies.",
-  email: "vikram.singh@email.com",
+    "I'm a passionate Next.js and AI Developer who specializes in building exceptional digital experiences. I transform complex problems into elegant, user-friendly solutions using Next.js, TypeScript, and modern web technologies.",
+  email: "deora.vikramsingh75@gmail.com",
   location: "India",
   github: "https://github.com/vikramsingh",
   linkedin: "https://linkedin.com/in/vikramsingh",

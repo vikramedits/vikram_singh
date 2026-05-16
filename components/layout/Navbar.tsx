@@ -53,7 +53,7 @@ export default function Navbar() {
 
             {/* Logo */}
             <a
-              href="#home"
+              href="/"
               className="text-xl font-bold tracking-tight hover:opacity-80 transition"
             >
               <span className="text-violet-500">V</span>ikram.
