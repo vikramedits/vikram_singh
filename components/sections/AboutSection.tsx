@@ -14,9 +14,9 @@ import {
   Sparkles,
   Phone,
   Mail,
-  // Github,
   // Linkedin,
 } from "lucide-react";
+import TypewriterCode from "./TypewriterCode";
 
 const highlights = [
   { icon: Code2, title: "Full Stack Engineer", desc: "Next.js + Backend Systems" },
@@ -145,7 +145,7 @@ export default function AboutSection() {
             </FadeIn>
 
             {/* Tech Stack */}
-            <StaggerContainer className="flex flex-wrap gap-2 mb-10" delay={0.3} staggerDelay={0.04}>
+            <StaggerContainer className="flex flex-wrap gap-2 mb-8" delay={0.3} staggerDelay={0.04}>
               {techStack.map((tech) => (
                 <StaggerItem key={tech}>
                   <span className="px-3 py-1 text-xs rounded-full border border-border bg-secondary/40 hover:border-violet-500/40 transition">
@@ -154,6 +154,11 @@ export default function AboutSection() {
                 </StaggerItem>
               ))}
             </StaggerContainer>
+
+            {/* Interactive Code Snippet */}
+            <FadeIn delay={0.4} className="mb-10">
+              <TypewriterCode />
+            </FadeIn>
 
             {/* CTA strip */}
             <div className="flex flex-wrap gap-3">

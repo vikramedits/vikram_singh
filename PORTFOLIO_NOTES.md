@@ -45,4 +45,15 @@ When you are ready to go live:
 
 ---
 
+## 📊 Vercel Analytics
+I have integrated Vercel Analytics to help you track your site's traffic and performance.
+
+1. **Enable Analytics**:
+   - Once you deploy your site to Vercel, go to your **Project Dashboard**.
+   - Click on the **Analytics** tab.
+   - Click **Enable** to start tracking.
+   - You will then see real-time data on visitors, their locations, and site speed without any extra code changes.
+
+---
+
 **Happy Coding!** 💻✨

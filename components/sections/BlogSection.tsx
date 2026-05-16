@@ -5,6 +5,7 @@ import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { blogPosts } from "@/data/portfolio";
 import { FadeIn } from "@/components/animations/FadeIn";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function BlogSection() {
   const featuredPosts = blogPosts.filter(post => post.featured);
@@ -34,7 +35,16 @@ export default function BlogSection() {
                 <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 border border-border/50">
                   {/* Placeholder for images since actual images might not exist */}
                   <div className="absolute inset-0 bg-linear-to-br from-violet-500/20 to-indigo-500/20 group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 flex items-center justify-center bg-muted">
+                  {post.thumbnail && (
+                    <Image 
+                      src={post.thumbnail} 
+                      alt={post.title} 
+                      fill 
+                      className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  )}
+                  <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
                     <span className="text-4xl opacity-10 font-bold uppercase tracking-widest">{post.category}</span>
                   </div>
                   

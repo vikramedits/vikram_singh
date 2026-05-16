@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, ArrowRight, Search } from "lucide-react";
 import { projects } from "@/data/portfolio";
 import { FadeIn } from "@/components/animations/FadeIn";
+import Image from "next/image";
 
 const allCategories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
@@ -26,7 +27,7 @@ export default function ProjectsSection() {
             <span className="text-sm font-medium text-violet-500 tracking-wider uppercase">Projects</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">
               Featured{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-500 to-indigo-500">
                 work
               </span>
             </h2>
@@ -89,17 +90,26 @@ export default function ProjectsSection() {
               >
                 {/* Thumbnail / Preview */}
                 <div className="relative h-48 bg-linear-to-br from-violet-500/10 to-indigo-500/20 overflow-hidden">
+                  {project.thumbnail && (
+                    <Image 
+                      src={project.thumbnail} 
+                      alt={project.title} 
+                      fill 
+                      className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  )}
                   {/* Browser frame */}
-                  <div className="absolute top-3 left-3 flex gap-1.5">
+                  <div className="absolute top-3 left-3 flex gap-1.5 z-10">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <span className="text-4xl font-bold text-violet-500/20">{project.title[0]}</span>
                   </div>
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 gap-3">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 gap-3">
                     {project.liveUrl && (
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full bg-white text-black hover:bg-white/90 transition-colors">
                         <ExternalLink className="w-3 h-3" /> Live

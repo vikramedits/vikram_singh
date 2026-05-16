@@ -20,6 +20,7 @@ import ThemeProvider from "@/components/layout/ThemeProvider";
 import BackgroundEffects from "@/components/animations/BackgroundEffects";
 import CustomCursor from "@/components/animations/CustomCursor";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { X, ZoomIn } from "lucide-react";
 
@@ -299,6 +300,15 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                       className="group relative aspect-video rounded-3xl overflow-hidden border border-border bg-card shadow-lg hover:shadow-violet-500/10 transition-all duration-500 cursor-zoom-in"
                     >
                       <div className="absolute inset-0 bg-linear-to-br from-violet-500/10 to-indigo-500/10 group-hover:scale-110 transition-transform duration-700" />
+                      {img && img.startsWith("/") && (
+                        <Image 
+                          src={img} 
+                          alt={`Screenshot ${i + 1}`} 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      )}
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px] z-20">
                          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-xs font-bold uppercase tracking-widest translate-y-2 group-hover:translate-y-0 transition-transform">
                            <ZoomIn className="w-4 h-4" />
@@ -370,9 +380,13 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="absolute inset-0 bg-linear-to-br from-violet-500/20 to-indigo-500/20" />
-                <div className="absolute inset-0 flex items-center justify-center text-white/20 font-bold text-4xl uppercase tracking-[1em] select-none">
-                  Screenshot
-                </div>
+                <Image 
+                  src={selectedImage} 
+                  alt="Project screenshot full view" 
+                  fill 
+                  className="object-contain"
+                  priority
+                />
               </motion.div>
             </motion.div>
           )}

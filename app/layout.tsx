@@ -51,6 +51,7 @@ export const metadata: Metadata = {
 };
 
 import ScrollProgress from "@/components/animations/ScrollProgress";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -66,6 +67,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col overflow-x-hidden">
         <ScrollProgress />
         {children}
+        <Analytics />
       </body>
     </html>
   );
