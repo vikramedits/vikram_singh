@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="vocaplyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+    <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#vocaplyGrad)"/>
+  <circle cx="400" cy="300" r="150" fill="white" opacity="0.1"/>
+  <!-- Book / Chat icon -->
+  <path d="M300 250 L500 250 A20 20 0 0 1 520 270 L520 370 A20 20 0 0 1 500 390 L420 390 L380 430 L380 390 L300 390 A20 20 0 0 1 280 370 L280 270 A20 20 0 0 1 300 250 Z" fill="white" />
+  <!-- Sparkles -->
+  <path d="M480 210 Q490 240 520 250 Q490 260 480 290 Q470 260 440 250 Q470 240 480 210 Z" fill="url(#sparkleGrad)" />
+  <!-- Text -->
+  <text x="400" y="335" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#4F46E5" text-anchor="middle">Vocaply</text>
+  <text x="400" y="365" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#7C3AED" text-anchor="middle">AI ENGLISH PLATFORM</text>
+</svg>
