@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { blogPosts } from "@/data/portfolio";
 import { FadeIn } from "@/components/animations/FadeIn";
+import Link from "next/link";
 
 export default function BlogSection() {
   const featuredPosts = blogPosts.filter(post => post.featured);
@@ -29,8 +30,8 @@ export default function BlogSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.slice(0, 3).map((post, idx) => (
             <FadeIn key={post.id} delay={idx * 0.1}>
-              <div className="group cursor-pointer">
-                <div className="relative aspect-video rounded-2xl overflow-hidden mb-6">
+              <Link href={`/blog/${post.slug}`} className="group block">
+                <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 border border-border/50">
                   {/* Placeholder for images since actual images might not exist */}
                   <div className="absolute inset-0 bg-linear-to-br from-violet-500/20 to-indigo-500/20 group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 flex items-center justify-center bg-muted">
@@ -66,13 +67,13 @@ export default function BlogSection() {
                   
                   <div className="pt-4 flex flex-wrap gap-2">
                     {post.tags.slice(0, 3).map(tag => (
-                      <span key={tag} className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-secondary text-muted-foreground">
+                      <span key={tag} className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-secondary text-muted-foreground border border-border/50">
                         #{tag}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
+              </Link>
             </FadeIn>
           ))}
         </div>

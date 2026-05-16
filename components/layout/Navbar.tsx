@@ -86,6 +86,7 @@ export default function Navbar() {
 
               <a
                 href={personalInfo.resumeUrl}
+                download
                 className="hidden sm:flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-violet-600 text-white hover:bg-violet-700 transition shadow-sm"
               >
                 <FileDown className="w-4 h-4" />
@@ -156,6 +157,7 @@ export default function Navbar() {
               {/* Resume */}
               <a
                 href={personalInfo.resumeUrl}
+                download
                 className="mt-6 block text-center px-4 py-3 rounded-lg bg-violet-600 text-white font-medium hover:bg-violet-700 transition"
               >
                 <div className="flex items-center justify-center gap-2">

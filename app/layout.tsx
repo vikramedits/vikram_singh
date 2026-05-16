@@ -13,8 +13,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vikram Singh | Full Stack Developer",
-  description: "Personal portfolio of Vikram Singh, a Full Stack Developer specializing in Next.js, React, and AI-driven solutions.",
+  title: {
+    default: "Vikram Singh | Full Stack Developer & AI Engineer",
+    template: "%s | Vikram Singh",
+  },
+  description: "Personal portfolio of Vikram Singh Deora, a Full Stack Developer specializing in Next.js, AI systems, and high-performance web applications.",
+  keywords: ["Next.js", "React", "TypeScript", "Full Stack Developer", "AI Engineer", "Portfolio", "Web Development"],
+  authors: [{ name: "Vikram Singh Deora" }],
+  creator: "Vikram Singh Deora",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://vikramsingh.in",
+    siteName: "Vikram Singh Portfolio",
+    title: "Vikram Singh | Full Stack Developer & AI Engineer",
+    description: "Building modern, scalable, and high-performance web experiences with Next.js and AI.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Vikram Singh Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vikram Singh | Full Stack Developer",
+    description: "Full Stack Developer specializing in Next.js and AI-driven solutions.",
+    images: ["/og-image.jpg"],
+    creator: "@vikramsingh",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
