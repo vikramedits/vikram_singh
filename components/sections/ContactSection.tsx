@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle2, XCircle, X } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { FadeIn } from "@/components/animations/FadeIn";
 
@@ -30,8 +30,11 @@ export default function ContactSection() {
       if (data.success) {
         setStatus("success");
         (e.target as HTMLFormElement).reset();
+        // Auto hide after 5 seconds
+        setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
       }
     } catch (error) {
       setStatus("error");
@@ -42,6 +45,44 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {status !== "idle" && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-100 w-[90%] max-w-sm"
+          >
+            <div className={`p-4 rounded-2xl border shadow-2xl backdrop-blur-xl flex items-center gap-4 ${status === "success"
+                ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-500"
+                : "bg-rose-500/10 border-rose-500/20 text-rose-500"
+              }`}>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${status === "success" ? "bg-emerald-500/20" : "bg-rose-500/20"
+                }`}>
+                {status === "success" ? <CheckCircle2 className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
+              </div>
+              <div className="flex-1">
+                <p className="font-bold text-sm">
+                  {status === "success" ? "Message Sent!" : "Send Failed"}
+                </p>
+                <p className="text-xs opacity-80">
+                  {status === "success"
+                    ? "I'll get back to you as soon as possible."
+                    : "Something went wrong. Please try again."}
+                </p>
+              </div>
+              <button
+                onClick={() => setStatus("idle")}
+                className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-black/5 transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -64,7 +105,7 @@ export default function ContactSection() {
               <FadeIn direction="left" delay={0.2}>
                 <div className="space-y-6">
                   <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center shrink-0 border border-violet-500/20">
                       <Mail className="w-6 h-6 text-violet-500" />
@@ -106,7 +147,7 @@ export default function ContactSection() {
                   <div className="relative z-10">
                     <h4 className="text-xl font-bold mb-2">Ready to start?</h4>
                     <p className="text-white/80 mb-6">Let&apos;s build something amazing together. Reach out for a free consultation.</p>
-                    <a 
+                    <a
                       href={`mailto:${personalInfo.email}`}
                       className="inline-flex items-center gap-2 px-6 py-3 bg-white text-violet-600 rounded-full font-semibold hover:bg-opacity-90 transition shadow-lg"
                     >
@@ -127,8 +168,8 @@ export default function ContactSection() {
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Name</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       name="name"
                       required
                       placeholder="John Doe"
@@ -137,8 +178,8 @@ export default function ContactSection() {
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Email</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       name="email"
                       required
                       placeholder="john@example.com"
@@ -148,8 +189,8 @@ export default function ContactSection() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Subject</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="subject"
                     required
                     placeholder="Project Inquiry"
@@ -158,7 +199,7 @@ export default function ContactSection() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Message</label>
-                  <textarea 
+                  <textarea
                     name="message"
                     required
                     rows={5}
@@ -166,8 +207,8 @@ export default function ContactSection() {
                     className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition resize-none text-sm"
                   />
                 </div>
-                
-                <button 
+
+                <button
                   type="submit"
                   disabled={isSubmitting}
                   className={`w-full py-4 rounded-xl bg-violet-600 text-white font-bold transition-all shadow-lg flex items-center justify-center gap-2 group ${isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:bg-violet-700 hover:shadow-violet-500/25"}`}
@@ -175,17 +216,6 @@ export default function ContactSection() {
                   {isSubmitting ? "Sending..." : "Send Message"}
                   <Send className={`w-4 h-4 transition-transform ${isSubmitting ? "" : "group-hover:translate-x-1 group-hover:-translate-y-1"}`} />
                 </button>
-
-                {status === "success" && (
-                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm text-emerald-500 text-center font-medium mt-4">
-                    Message sent successfully! I&apos;ll get back to you soon.
-                  </motion.p>
-                )}
-                {status === "error" && (
-                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm text-rose-500 text-center font-medium mt-4">
-                    Something went wrong. Please try again.
-                  </motion.p>
-                )}
               </form>
             </FadeIn>
           </div>

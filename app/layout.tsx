@@ -50,6 +50,8 @@ export const metadata: Metadata = {
   },
 };
 
+import ScrollProgress from "@/components/animations/ScrollProgress";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,7 +63,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       data-scroll-behavior="smooth"
     >
-      <body className="min-h-full flex flex-col overflow-x-hidden">{children}</body>
+      <body className="min-h-full flex flex-col overflow-x-hidden">
+        <ScrollProgress />
+        {children}
+      </body>
     </html>
   );
 }

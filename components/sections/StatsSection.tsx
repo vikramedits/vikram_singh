@@ -99,7 +99,7 @@ export default function StatsSection() {
               </p>
 
               <h3 className="text-5xl font-semibold mt-3">
-                3 <span className="text-violet-400">Live Apps</span>
+                <Counter value={3} suffix="" /> <span className="text-violet-400">Live Apps</span>
               </h3>
 
               <p className="mt-4 text-white/50 text-sm max-w-md">

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, 
   ExternalLink, 
@@ -20,8 +20,11 @@ import ThemeProvider from "@/components/layout/ThemeProvider";
 import BackgroundEffects from "@/components/animations/BackgroundEffects";
 import CustomCursor from "@/components/animations/CustomCursor";
 import Link from "next/link";
+import { useState } from "react";
+import { X, ZoomIn } from "lucide-react";
 
 export default function ProjectDetailClient({ slug }: { slug: string }) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const projectIndex = projects.findIndex((p) => p.slug === slug);
   const project = projects[projectIndex];
 
@@ -292,13 +295,17 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      className="group relative aspect-video rounded-3xl overflow-hidden border border-border bg-card shadow-lg hover:shadow-violet-500/10 transition-all duration-500"
+                      onClick={() => setSelectedImage(img)}
+                      className="group relative aspect-video rounded-3xl overflow-hidden border border-border bg-card shadow-lg hover:shadow-violet-500/10 transition-all duration-500 cursor-zoom-in"
                     >
                       <div className="absolute inset-0 bg-linear-to-br from-violet-500/10 to-indigo-500/10 group-hover:scale-110 transition-transform duration-700" />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
-                         <span className="px-4 py-2 rounded-full bg-white text-black text-xs font-bold uppercase tracking-widest">View Image</span>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px] z-20">
+                         <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-xs font-bold uppercase tracking-widest translate-y-2 group-hover:translate-y-0 transition-transform">
+                           <ZoomIn className="w-4 h-4" />
+                           View Image
+                         </div>
                       </div>
-                      <div className="absolute inset-0 flex items-center justify-center text-muted-foreground italic text-xs pointer-events-none">
+                      <div className="absolute inset-0 flex items-center justify-center text-muted-foreground italic text-xs pointer-events-none z-10">
                         Screenshot {i + 1}
                       </div>
                     </motion.div>
@@ -334,6 +341,43 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
           </div>
         </main>
         
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 sm:p-10 cursor-zoom-out"
+              onClick={() => setSelectedImage(null)}
+            >
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-50"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage(null);
+                }}
+              >
+                <X className="w-6 h-6" />
+              </motion.button>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                className="relative max-w-7xl w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="absolute inset-0 bg-linear-to-br from-violet-500/20 to-indigo-500/20" />
+                <div className="absolute inset-0 flex items-center justify-center text-white/20 font-bold text-4xl uppercase tracking-[1em] select-none">
+                  Screenshot
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <Footer />
       </div>
     </ThemeProvider>
