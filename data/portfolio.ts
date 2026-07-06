@@ -30,7 +30,7 @@ export const skills = {
   ],
   backend: [
     { name: "Node.js", icon: "nodejs", level: 80 },
-    { name: "Express", icon: "express", level: 78 },
+    { name: "Supabase", icon: "supabase", level: 78 },
     { name: "Prisma", icon: "prisma", level: 75 },
     { name: "MongoDB", icon: "mongodb", level: 72 },
     { name: "PostgreSQL", icon: "postgresql", level: 70 },
