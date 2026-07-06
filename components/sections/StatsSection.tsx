@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { stats } from "@/data/portfolio";
+import { stats, projects } from "@/data/portfolio";
 
 /* -------------------- COUNTER -------------------- */
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -99,7 +99,7 @@ export default function StatsSection() {
               </p>
 
               <h3 className="text-5xl font-semibold mt-3">
-                <Counter value={3} suffix="" /> <span className="text-violet-400">Live Apps</span>
+                <Counter value={projects.length} suffix="+" /> <span className="text-violet-400">Projects</span>
               </h3>
 
               <p className="mt-4 text-white/50 text-sm max-w-md">
